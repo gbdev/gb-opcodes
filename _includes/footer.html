@@ -1,0 +1,14 @@
+<footer class="text-center">
+	<p>This page is based on the opcodes list of <a href="http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html">PASTRAISER</a>.</p>
+	<p>Check out the <a href="https://github.com/gbdev/awesome-gbdev">Awesome Game Boy Development</a> list.</p>
+	<p>
+		<a href="{{ "/" | relative_url }}{% if page.octalTables %}octal{% endif %}">Light theme</a> –
+		<a href="{{ "/dark" | relative_url }}{% if page.octalTables %}octal{% endif %}">Dark theme</a> –
+		<a href="{{ "/classic" | relative_url }}{% if page.octalTables %}octal{% endif %}">Classic theme</a></p>
+
+	{% if page.octalTables %}
+		<p><a href="{{ page.url | split: "." | first | replace: "octal", "" | relative_url }}">Standard representation</a></p>
+	{% else %}
+		<p><a href="{{ page.url | split: "." | first | append: "octal" | relative_url }}">Octal representation</a></p>
+	{% endif %}
+</footer>

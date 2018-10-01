@@ -1,0 +1,33 @@
+<div class="table-responsive">
+	<table{% if include.id != "" %} id="{{ include.id }}"{% endif %} class="table opcode-table table-bordered table-sm{% if page.theme == "dark" %} table-dark{% endif %}">
+		<thead>
+			<tr>
+				{% for i in (-1..7) %}
+					<th>{% unless i == -1 %}x{% include oct.html value=i prepend=false %}{% endunless %}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% assign x = 0 %}
+			{% for i in (0..15) %}
+				<tr>
+					<td>{% include oct.html value=x prepend=false %}x</td>
+
+					{% for j in (0..7) %}
+						{% include op-table-cell.html set=include.set row=i column=j %}
+					{% endfor %}
+				</tr>
+				{% assign x = x | plus: 1 %}
+
+				<tr>
+					<td>{% include oct.html value=x prepend=false %}x</td>
+
+					{% for j in (8..15) %}
+						{% include op-table-cell.html set=include.set row=i column=j %}
+					{% endfor %}
+				</tr>
+				{% assign x = x | plus: 1 %}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

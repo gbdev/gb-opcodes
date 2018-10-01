@@ -13,59 +13,7 @@
 					<td>{% unless i == -1 %}{% include hex.html value=i prepend=false %}x{% endunless %}</td>
 
 					{% for j in (0..15) %}
-						{% assign index = i | times: 16 | plus: j %}
-						{% capture key %}{% include hex.html value=index addPrefix=true %}{% endcapture %}
-						{% assign key = key | strip %}
-						{% assign op = site.data.Opcodes[include.set][key] %}
-						{% assign mnemonic = op.mnemonic %}
-
-						{% assign illegal = mnemonic | slice: 0, 7 %}
-						{% if illegal == "ILLEGAL" %}{% assign illegal = true %}{% else %}{% assign illegal = false %}{% endif %}
-						{% if illegal %}{% assign mnemonic = "ILLEGAL" %}{% endif %}
-
-						{% if op.operands.size > 0 and op.operands[0].name == "SP" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "BC" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "DE" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "HL" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "AF" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "a16" and op.operands[0].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 0 and op.operands[0].name == "d16" %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "SP" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "BC" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "DE" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "HL" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "AF" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "a16" and op.operands[1].immediate %}
-							{% assign is16bit = true %}
-						{% elsif op.operands.size > 1 and op.operands[1].name == "d16" %}
-							{% assign is16bit = true %}
-						{% else %}
-							{% assign is16bit = false %}
-						{% endif %}
-
-						<td id="op-{% if include.set == "cbprefixed" %}cb{% endif %}{{ key | downcase | slice: -2, 2 }}" class="opcode-info op-{{ mnemonic | downcase }} {% if is16bit %}is16bit{% else %}is8bit{% endif %}">
-							{% if illegal %}
-								—
-							{% else %}
-								<span class="mnemonic">{% include mnemonic.html id=key op=op %}</span>
-								<span class="bytes-cycles">
-									<span class="bytes">{{ op.bytes }}</span>&nbsp;&nbsp;<span class="cycles">{{ op.cycles | join: '/' }}</span>
-								</span>
-								<span class="flags">{{ op.flags.Z }} {{ op.flags.N }} {{ op.flags.H }} {{ op.flags.C }}</span>
-							{% endif %}
-						</td>
+						{% include op-table-cell.html set=include.set row=i column=j %}
 					{% endfor %}
 				</tr>
 			{% endfor %}
