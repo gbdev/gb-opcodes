@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Game Boy CPU (LR35902) instruction set
 description: >-
-  Information about the instruction set of the Nintendo Game Boy, Game Boy Color and Super Game Boy systems.
+  Instruction set of the Nintendo Game Boy, Game Boy Pocket, Game Boy Color and Super Game Boy systems.
 baseurl: "/gb-docs" # the subpath of your site, e.g. /blog
 url: "http://max-m.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -29,3 +29,6 @@ kramdown:
 
 sass:
   style: compressed
+
+plugins:
+  - jekyll-sitemap
