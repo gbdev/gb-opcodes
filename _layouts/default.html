@@ -13,7 +13,10 @@
 	<link rel="icon" type="image/png" href="{{ "/favicon.png" | relative_url}}" sizes="16x16">
 	<link rel="icon" type="image/png" href="{{ "/favicon-x128.png" | relative_url}}" sizes="128x128">
 	<link rel="apple-touch-icon" sizes="128x128" href="{{ "/favicon-x128.png" | relative_url}}">
-	<meta property="og:image" content="{{ "/assets/opengraph-image.png" | relative_url}}">
+
+	{% capture ogimage %}/assets/opengraph-image{% if page.theme %}-{{ page.theme }}{% endif %}.png{% endcapture %}
+
+	<meta property="og:image" content="{{ ogimage | strip | relative_url }}">
 
 	<meta name="google-site-verification" content="EoI79Ar6lCYY8kCtwd17i7PwcSF6lE6hHQ4AaKXHuQc" />
 </head>
