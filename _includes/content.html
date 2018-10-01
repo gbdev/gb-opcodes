@@ -1,0 +1,100 @@
+<section id="content" class="container">
+	<h1>Game Boy CPU (LR35902) instruction set</h1>
+
+	<div class="row">
+		<div class="col">
+			{% include op-table.html set=site.data.Opcodes.unprefixed %}
+		</div>
+	</div>
+
+	<h2>Prefixed ($CB $xx)</h2>
+
+	<div class="row">
+		<div class="col">
+			{% include op-table.html set=site.data.Opcodes.cbprefixed %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-lg-6 mb-3">
+			<span class="legend"><span class="legend-color legend-control"></span> Misc / control instructions</span>
+			<span class="legend"><span class="legend-color legend-jump"></span> Jumps / calls</span>
+			<span class="legend"><span class="legend-color legend-load"></span> 8bit load instructions</span>
+			<span class="legend"><span class="legend-color legend-load16"></span> 16bit load instructions</span>
+			<span class="legend"><span class="legend-color legend-arithmetic"></span> 8bit arithmetic / logical instructions</span>
+			<span class="legend"><span class="legend-color legend-arithmetic16"></span> 16bit arithmetic / logical instructions</span>
+			<span class="legend"><span class="legend-color legend-bit"></span> 8bit shift, rotate and bit instructions</span>
+		</div>
+
+		<div class="col-md-12 col-lg-6 mb-3">
+			<table>
+				<tbody>
+					<tr>
+						<td>&nbsp;<br>Length in bytes →<br>&nbsp;</td>
+						<td style="text-align: center; border: 1px solid #000; background-color: #fff; color: #000;">INS reg<br>2&nbsp;&nbsp;8<br>Z N H C</td>
+						<td>← Instruction mnemonic<br>← Duration in cycles<br>← Flags affected</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-lg-6">
+			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+				<div class="card-body">
+					<kbd>Z</kbd> - Zero Flag<br>
+					<kbd>N</kbd> - Subtract Flag<br>
+					<kbd>H</kbd> - Half Carry Flag<br>
+					<kbd>C</kbd> - Carry Flag<br>
+					<kbd>0</kbd> - Not used, always zero<br>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12 col-lg-6">
+			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+				<div class="card-body">
+					Duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) means duration of instruction when action is taken, the lower number (on the right side of “/”) means duration of instruction when action is not taken.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+				<div class="card-body">
+					Flags affected are always shown in <kbd>Z H N C</kbd> order.
+					If flag is marked by <kbd>0</kbd> it means it is reset after the instruction. If it is marked by <kdb>1</kdb> it is set.
+					If it is marked by <kbd>-</kbd> it is not changed.
+					If it is marked by <kbd>Z</kbd>, <kbd>N</kbd>, <kbd>H</kbd> or <kbd>C</kbd> corresponding flag is affected as expected by its function.
+				</div>
+			</div>
+
+			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+				<div class="card-body">
+					<p><kbd>d8</kbd> means immediate 8 bit data</p>
+					<p><kbd>d16</kbd> means immediate 16 bit data</p>
+					<p><kbd>a8</kbd> means 8 bit unsigned data, which are added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
+					<p><kbd>a16</kbd> means 16 bit address</p>
+					<p><kbd>r8</kbd> means 8 bit signed data, which are added to program counter</p>
+					<br>
+					<p><kbd>LD A, (C)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+C)</kbd></p>
+					<p><kbd>LD C, (A)</kbd> has the alternative mnemonic <kbd>LD ($FF00+C), A</kbd></p>
+					<p><kbd>LDH A, (a8)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+a8)</kbd></p>
+					<p><kbd>LDH (a8), A</kbd> has the alternative mnemonic <kbd>LD ($FF00+a8), A</kbd></p>
+					<p><kbd>LD A, (HL+)</kbd> has the alternative mnemonic <kbd>LD A, (HLI)</kbd> or <kbd>LDI A, (HL)</kbd></p>
+					<p><kbd>LD (HL+), A</kbd> has the alternative mnemonic <kbd>LD (HLI), A</kbd> or <kbd>LDI (HL), A</kbd></p>
+					<p><kbd>LD A, (HL-)</kbd> has the alternative mnemonic <kbd>LD A, (HLD)</kbd> or <kbd>LDD A, (HL)</kbd></p>
+					<p><kbd>LD (HL-), A</kbd> has the alternative mnemonic <kbd>LD (HLD), A</kbd> or <kbd>LDD (HL), A</kbd></p>
+					<kbd>LD HL, SP+r8</kbd> has the alternative mnemonic <kbd>LDHL SP, r8</kbd>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer class="text-center">
+	This page is based on the opcodes list of <a href="http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html">PASTRAISER</a>.
+</footer>
