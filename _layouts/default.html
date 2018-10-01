@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head>
+<head class="nojs">
+	{% assign collection_url = page.url | split: "/" | pop | join "/" | strip | prepend: "/" | append: "/" | relative_url %}
 	<title>{{ site.title }}</title>
 	<meta charset='utf-8'/>
 
@@ -14,25 +15,16 @@
 	<link rel="icon" type="image/png" href="{{ "/favicon-x128.png" | relative_url}}" sizes="128x128">
 	<link rel="apple-touch-icon" sizes="128x128" href="{{ "/favicon-x128.png" | relative_url}}">
 
-	{% capture ogimage %}/assets/opengraph-image{% if page.theme %}-{{ page.theme }}{% endif %}{% if page.octalTables %}-octal{% endif %}.png{% endcapture %}
+	{% if page.ogimage %}<meta property="og:image" content="{{ page.ogimage | strip | relative_url }}">{% endif %}
 
-	<meta property="og:image" content="{{ ogimage | strip | relative_url }}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script>document.head.classList.remove('nojs')</script>
 
 	<meta name="google-site-verification" content="EoI79Ar6lCYY8kCtwd17i7PwcSF6lE6hHQ4AaKXHuQc" />
 </head>
 <body class="{% if page.theme %}theme-{{ page.theme }}{% endif %}{% if page.theme == "dark" %} bg-dark text-white{% endif %}">
-	<header>
-		{% include nav.html %}
-	</header>
-
-	<section id="content" class="container{% if page.containerFluid %}-fluid{% endif %}">
-		{{ content }}
-	</section>
-
-	{% if page.footer %}
-		{% include {{ page.footer }} %}
-	{% else %}
-		{% include footer.html %}
-	{% endif %}
+	{{ content }}
 </body>
 </html>

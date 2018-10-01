@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<header>
+	{% capture nav %}
+		<li class="nav-item">
+			<a class="nav-link" href="{{ "/optables" | relative_url }}">Opcode Tables</a>
+		</li>
+
+		{% include awesome.html %}
+	{% endcapture%}
+	{% include nav.html content=nav %}
+</header>
+
+{% capture _content%}
+<div class="jumbotron mt-4">
+	<h1 class="display-4">Hello, there!</h1>
+	<p class="lead">
+		This page is built by the community but not yet finished.<br>
+		It is meant to become your go-to reference to lookup Game Boy instruction set related information.
+		<hr class="my-4">
+		Why don’t you take a look at our <a href="{{ "/optables" | relative_url }}">Opcode Tables</a> first? :)
+	</p>
+</div>
+{% endcapture%}
+
+{% include content.html content=_content %}

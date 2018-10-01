@@ -13,7 +13,7 @@
 					<td>{% unless i == -1 %}{% include hex.html value=i prepend=false %}x{% endunless %}</td>
 
 					{% for j in (0..15) %}
-						{% include op-table-cell.html set=include.set row=i column=j %}
+						{% include optables/op-table-cell.html set=include.set row=i column=j %}
 					{% endfor %}
 				</tr>
 			{% endfor %}

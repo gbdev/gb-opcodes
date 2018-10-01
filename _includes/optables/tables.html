@@ -3,9 +3,9 @@
 <div class="row">
 	<div class="col">
 		{% if page.octalTables %}
-			{% include op-table-oct.html set="unprefixed" id="standard" %}
+			{% include optables/op-table-oct.html set="unprefixed" id="standard" %}
 		{% else %}
-			{% include op-table.html set="unprefixed" id="standard" %}
+			{% include optables/op-table.html set="unprefixed" id="standard" %}
 		{% endif %}
 	</div>
 </div>
@@ -15,9 +15,9 @@
 <div class="row">
 	<div class="col">
 		{% if page.octalTables %}
-			{% include op-table-oct.html set="cbprefixed" id="prefixed" %}
+			{% include optables/op-table-oct.html set="cbprefixed" id="prefixed" %}
 		{% else %}
-			{% include op-table.html set="cbprefixed" id="prefixed" %}
+			{% include optables/op-table.html set="cbprefixed" id="prefixed" %}
 		{% endif %}
 	</div>
 </div>

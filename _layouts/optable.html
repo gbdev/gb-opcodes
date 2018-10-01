@@ -1,0 +1,37 @@
+---
+layout: default
+---
+{% assign collection_url = page.url | split: "/" | pop | join "/" | strip | prepend: "/" | append: "/" | relative_url %}
+<header>
+	{% capture nav %}
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Theme
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="{{ collection_url }}{% if page.octalTables %}octal{% endif %}">Light</a>
+				<a class="dropdown-item" href="{{ collection_url | append: "dark" }}{% if page.octalTables %}octal{% endif %}">Dark</a>
+				<a class="dropdown-item" href="{{ collection_url | append: "classic" }}{% if page.octalTables %}octal{% endif %}">Classic</a>
+			</div>
+		</li>
+
+		<li class="nav-item">
+			{% if page.octalTables %}
+				<a class="nav-link" href="{{ collection_url | append: page.theme | replace: "default", "" }}">Standard Display</a>
+			{% else %}
+				<a class="nav-link" href="{{ collection_url | append: page.theme | replace: "default", "" | append: "octal" }}">Octal Display</a>
+			{% endif %}
+		</li>
+
+		{% include awesome.html %}
+	{% endcapture %}
+	{% include nav.html content=nav %}
+</header>
+
+{% include content.html content=content %}
+
+{% if page.footer %}
+	{% include {{ page.footer }} %}
+{% else %}
+	{% include optables/footer.html %}
+{% endif %}

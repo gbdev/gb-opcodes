@@ -18,8 +18,15 @@ description: >-
   Instruction set of the Nintendo Game Boy, Game Boy Pocket, Game Boy Color and Super Game Boy systems.
 baseurl: "/gb-docs" # the subpath of your site, e.g. /blog
 url: "http://max-m.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github: "https://github.com/max-m/gb-docs"
 
 encoding: UTF-8
+
+collections_dir: collections
+
+collections:
+  optables:
+    output: true
 
 # Build settings
 markdown: kramdown

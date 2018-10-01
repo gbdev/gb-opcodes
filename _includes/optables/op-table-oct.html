@@ -14,7 +14,7 @@
 					<td>{% include oct.html value=x prepend=false %}x</td>
 
 					{% for j in (0..7) %}
-						{% include op-table-cell.html set=include.set row=i column=j %}
+						{% include optables/op-table-cell.html set=include.set row=i column=j %}
 					{% endfor %}
 				</tr>
 				{% assign x = x | plus: 1 %}
@@ -23,7 +23,7 @@
 					<td>{% include oct.html value=x prepend=false %}x</td>
 
 					{% for j in (8..15) %}
-						{% include op-table-cell.html set=include.set row=i column=j %}
+						{% include optables/op-table-cell.html set=include.set row=i column=j %}
 					{% endfor %}
 				</tr>
 				{% assign x = x | plus: 1 %}

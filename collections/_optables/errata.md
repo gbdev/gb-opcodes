@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: optable
 theme: default
 
 ---

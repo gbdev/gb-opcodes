@@ -2,26 +2,29 @@
 	max-width: map-get($container-max-widths, xl);
 }
 
-.dropdown {
-	&:hover {
-		> .dropdown-menu {
-			display: block;
-		}
-	}
-
-	> .dropdown-toggle {
+// Provide a JavaScript-less dropdown menu for desktops
+@include media-breakpoint-up(lg) {
+	.dropdown {
 		&:hover {
-			+ .dropdown-menu {
+			> .dropdown-menu {
 				display: block;
 			}
 		}
-	}
 
-	.dropdown-menu {
-		margin: 0;
+		> .dropdown-toggle {
+			&:hover {
+				+ .dropdown-menu {
+					display: block;
+				}
+			}
+		}
 
-		&:hover {
-			display: block;
+		.dropdown-menu {
+			margin: 0;
+
+			&:hover {
+				display: block;
+			}
 		}
 	}
 }

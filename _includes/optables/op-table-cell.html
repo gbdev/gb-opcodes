@@ -44,7 +44,7 @@
 	{% if illegal %}
 		—
 	{% else %}
-		<span class="mnemonic">{% include mnemonic.html id=key op=op %}</span>
+		<span class="mnemonic">{% include optables/mnemonic.html id=key op=op %}</span>
 		<span class="bytes-cycles">
 			<span class="bytes">{{ op.bytes }}</span>&nbsp;&nbsp;<span class="cycles">{{ op.cycles | join: '/' }}</span>
 		</span>
