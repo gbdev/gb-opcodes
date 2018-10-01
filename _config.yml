@@ -19,18 +19,13 @@ description: >-
 baseurl: "/gb-docs" # the subpath of your site, e.g. /blog
 url: "http://max-m.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+encoding: UTF-8
+
 # Build settings
 markdown: kramdown
-theme: minima
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+sass:
+  style: compressed

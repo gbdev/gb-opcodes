@@ -55,11 +55,11 @@
 							{% assign is16bit = false %}
 						{% endif %}
 
-						<td class="op-{{ mnemonic | downcase }} {% if is16bit %}is16bit{% else %}is8bit{% endif %}">
+						<td class="opcode-info op-{{ mnemonic | downcase }} {% if is16bit %}is16bit{% else %}is8bit{% endif %}">
 							{% if illegal %}
 								—
 							{% else %}
-								<span class="op">{% include mnemonic.html id=key op=op %}</span>
+								<span class="mnemonic">{% include mnemonic.html id=key op=op %}</span>
 								<span class="bytes-cycles">
 									<span class="bytes">{{ op.bytes }}</span>&nbsp;&nbsp;<span class="cycles">{{ op.cycles | join: '/' }}</span>
 								</span>

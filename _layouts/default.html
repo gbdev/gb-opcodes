@@ -7,10 +7,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
 	{% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
-
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 </head>
 <body class="{% if page.theme %}theme-{{ page.theme }}{% endif %}{% if page.theme == "dark" %} bg-dark text-white{% endif %}">
 	{{ content }}

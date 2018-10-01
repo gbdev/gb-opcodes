@@ -1,0 +1,210 @@
+kbd {
+	white-space: nowrap;
+}
+
+.table-sm {
+	font-size: 0.65rem;
+	line-height: 1.125;
+}
+
+.table-sm td {
+	padding: .2rem .5rem;
+}
+
+.opcode-info > span {
+	white-space: nowrap;
+}
+
+.mnemonic, .bytes-cycles, .flags {
+	display: block;
+}
+
+#demo-table {
+	border-collapse: collapse;
+
+	> tbody > tr > td:nth-child(3) {
+		white-space: nowrap;
+		text-align: center;
+		background-color: #fff;
+		color: #000;
+		border-width: 1px;
+	}
+
+	// Top
+	> tbody > tr:nth-child(1) > td:nth-child(3) {
+		border-style: solid solid none solid;
+		padding: .2rem .5rem 0 .5rem;
+	}
+
+	// Middle
+	> tbody > tr:nth-child(2) > td:nth-child(3) {
+		border-style: none solid none solid;
+		padding: 0 .5rem;
+	}
+
+	// Bottom
+	> tbody > tr:nth-child(3) > td:nth-child(3) {
+		border-style: none solid solid solid;
+		padding: 0 .5rem .2rem .5rem;
+	}
+}
+
+.legend {
+	display: block;
+}
+
+.legend-color {
+	display: inline-block;
+	width: 30px;
+	height: 1em;
+	vertical-align: middle;
+}
+
+.legend-control { background-color: map-get($op-control, default); }
+.legend-jump { background-color: map-get($op-jump, default); }
+.legend-load { background-color: map-get($op-load, default); }
+.legend-load16 { background-color: map-get($op-load16, default); }
+.legend-arithmetic { background-color: map-get($op-arithmetic, default); }
+.legend-arithmetic16 { background-color: map-get($op-arithmetic16, default); }
+.legend-bit { background-color: map-get($op-bit, default); }
+
+.theme-dark {
+	.legend-control { background-color: map-get($op-control, dark); }
+	.legend-jump { background-color: map-get($op-jump, dark); }
+	.legend-load { background-color: map-get($op-load, dark); }
+	.legend-load16 { background-color: map-get($op-load16, dark); }
+	.legend-arithmetic { background-color: map-get($op-arithmetic, dark); }
+	.legend-arithmetic16 { background-color: map-get($op-arithmetic16, dark); }
+	.legend-bit { background-color: map-get($op-bit, dark); }
+}
+
+.theme-classic {
+	.legend-control { background-color: map-get($op-control, classic); }
+	.legend-jump { background-color: map-get($op-jump, classic); }
+	.legend-load { background-color: map-get($op-load, classic); }
+	.legend-load16 { background-color: map-get($op-load16, classic); }
+	.legend-arithmetic { background-color: map-get($op-arithmetic, classic); }
+	.legend-arithmetic16 { background-color: map-get($op-arithmetic16, classic); }
+	.legend-bit { background-color: map-get($op-bit, classic); }
+}
+
+@mixin opcode-table($variant:default) {
+	> tbody > tr > td:first-child {
+		vertical-align: middle;
+	}
+
+	> thead > tr > th,
+	> tbody > tr > td {
+		text-align: center;
+	}
+
+	> tbody > tr > td:first-child {
+		font-weight: bold;
+	}
+
+	.op-illegal {
+		background-color: map-get($op-illegal, $variant);
+	}
+
+	/* Control / misc */
+	.op-nop,
+	.op-stop,
+	.op-halt,
+	.op-prefix,
+	.op-di,
+	.op-ei {
+		background-color: map-get($op-control, $variant);
+	}
+
+	/* Jumps / calls */
+	.op-call,
+	.op-ret,
+	.op-reti,
+	.op-jp,
+	.op-jr,
+	.op-rst {
+		background-color: map-get($op-jump, $variant);
+	}
+
+	/* 8bit ops */
+	.op-ld,
+	.op-ldh {
+		background-color: map-get($op-load, $variant);
+	}
+
+	.op-inc,
+	.op-dec,
+	.op-daa,
+	.op-scf,
+	.op-inc,
+	.op-dec,
+	.op-cpl,
+	.op-ccf,
+	.op-add,
+	.op-adc,
+	.op-sub,
+	.op-sbc,
+	.op-and,
+	.op-xor,
+	.op-or,
+	.op-cp {
+		background-color: map-get($op-arithmetic, $variant);
+	}
+
+	.op-rlca,
+	.op-rrca,
+	.op-rla,
+	.op-rra,
+	/* Prefixed bit manipulation ops */
+	.op-rlc,
+	.op-rrc,
+	.op-rl,
+	.op-rr,
+	.op-sla,
+	.op-sra,
+	.op-swap,
+	.op-srl,
+	.op-bit,
+	.op-res,
+	.op-set {
+		background-color: map-get($op-bit, $variant);
+	}
+
+	/* 16bit ops */
+	.op-ld.is16bit,
+	.op-push,
+	.op-pop {
+		background-color: map-get($op-load16, $variant);
+	}
+
+	.op-add.is16bit,
+	.op-inc.is16bit,
+	.op-dec.is16bit {
+		background-color: map-get($op-arithmetic16, $variant);
+	}
+}
+
+.opcode-table {
+	@include opcode-table();
+
+	&.table-dark {
+		@include opcode-table(dark);
+	}
+}
+
+.theme-classic {
+	background-color: #dfdfdf;
+
+	.opcode-table {
+		&, thead, tbody, tr, th, td {
+			border-color: #000;
+		}
+
+		th,
+		tr > td:first-child {
+			background-color: #9f9f9f;
+		}
+
+		@include opcode-table(classic);
+	}
+}

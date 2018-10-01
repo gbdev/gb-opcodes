@@ -1,5 +1,5 @@
 <section id="content" class="container">
-	<h1>Game Boy CPU (LR35902) instruction set</h1>
+	<h1>Game Boy CPU (LR35902) instruction set (<a href="{{ "/Opcodes.json" | relative_url }}">JSON</a>)</h1>
 
 	<div class="row">
 		<div class="col">
@@ -19,21 +19,19 @@
 		<div class="col-md-12 col-lg-6 mb-3">
 			<span class="legend"><span class="legend-color legend-control"></span> Misc / control instructions</span>
 			<span class="legend"><span class="legend-color legend-jump"></span> Jumps / calls</span>
-			<span class="legend"><span class="legend-color legend-load"></span> 8bit load instructions</span>
-			<span class="legend"><span class="legend-color legend-load16"></span> 16bit load instructions</span>
-			<span class="legend"><span class="legend-color legend-arithmetic"></span> 8bit arithmetic / logical instructions</span>
-			<span class="legend"><span class="legend-color legend-arithmetic16"></span> 16bit arithmetic / logical instructions</span>
-			<span class="legend"><span class="legend-color legend-bit"></span> 8bit shift, rotate and bit instructions</span>
+			<span class="legend"><span class="legend-color legend-load"></span> 8-bit load instructions</span>
+			<span class="legend"><span class="legend-color legend-load16"></span> 16-bit load instructions</span>
+			<span class="legend"><span class="legend-color legend-arithmetic"></span> 8-bit arithmetic / logical instructions</span>
+			<span class="legend"><span class="legend-color legend-arithmetic16"></span> 16-bit arithmetic / logical instructions</span>
+			<span class="legend"><span class="legend-color legend-bit"></span> 8-bit shift, rotate and bit instructions</span>
 		</div>
 
 		<div class="col-md-12 col-lg-6 mb-3">
-			<table>
+			<table id="demo-table">
 				<tbody>
-					<tr>
-						<td>&nbsp;<br>Length in bytes →<br>&nbsp;</td>
-						<td style="text-align: center; border: 1px solid #000; background-color: #fff; color: #000;">INS reg<br>2&nbsp;&nbsp;8<br>Z N H C</td>
-						<td>← Instruction mnemonic<br>← Duration in cycles<br>← Flags affected</td>
-					</tr>
+					<tr><td></td> <td></td> <td><span>INS reg</span><br></td> <td>←</td> <td>Instruction mnemonic</td></tr>
+					<tr><td>Length in bytes</td> <td>→</td> <td><span>2&nbsp;&nbsp;8</span><br></td> <td>←</td> <td>Duration in cycles</td></tr>
+					<tr><td></td> <td></td><td><span>Z N H C</span></td> <td>←</td> <td>Flags affected</td></tr>
 				</tbody>
 			</table>
 		</div>
@@ -55,7 +53,7 @@
 		<div class="col-md-12 col-lg-6">
 			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
-					Duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) means duration of instruction when action is taken, the lower number (on the right side of “/”) means duration of instruction when action is not taken.
+					The duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) means duration of instruction when action is taken, the lower number (on the right side of “/”) means duration of instruction when action is not taken.
 				</div>
 			</div>
 		</div>
@@ -66,19 +64,19 @@
 			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
 					Flags affected are always shown in <kbd>Z H N C</kbd> order.
-					If flag is marked by <kbd>0</kbd> it means it is reset after the instruction. If it is marked by <kdb>1</kdb> it is set.
+					If a flag is marked by <kbd>0</kbd> it means it is reset after the instruction. If it is marked by <kbd>1</kbd> it is set.
 					If it is marked by <kbd>-</kbd> it is not changed.
-					If it is marked by <kbd>Z</kbd>, <kbd>N</kbd>, <kbd>H</kbd> or <kbd>C</kbd> corresponding flag is affected as expected by its function.
+					If it is marked by <kbd>Z</kbd>, <kbd>N</kbd>, <kbd>H</kbd> or <kbd>C</kbd> the corresponding flag is affected as expected by its function.
 				</div>
 			</div>
 
 			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
-					<p><kbd>d8</kbd> means immediate 8 bit data</p>
-					<p><kbd>d16</kbd> means immediate 16 bit data</p>
-					<p><kbd>a8</kbd> means 8 bit unsigned data, which are added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
-					<p><kbd>a16</kbd> means 16 bit address</p>
-					<p><kbd>r8</kbd> means 8 bit signed data, which are added to program counter</p>
+					<p><kbd>d8</kbd> means immediate 8-bit data</p>
+					<p><kbd>d16</kbd> means immediate 16-bit data</p>
+					<p><kbd>a8</kbd> means 8-bit unsigned data, which is added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
+					<p><kbd>a16</kbd> means 16-bit address</p>
+					<p><kbd>r8</kbd> means 8-bit signed data, which is added to the program counter</p>
 					<br>
 					<p><kbd>LD A, (C)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+C)</kbd></p>
 					<p><kbd>LD C, (A)</kbd> has the alternative mnemonic <kbd>LD ($FF00+C), A</kbd></p>
@@ -97,5 +95,6 @@
 
 <footer class="text-center">
 	<p>This page is based on the opcodes list of <a href="http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html">PASTRAISER</a>.</p>
-	<a href="https://max-m.github.io/gb-docs/">Light theme</a> – <a href="https://max-m.github.io/gb-docs/dark">Dark theme</a> – <a href="https://max-m.github.io/gb-docs/classic">Classic theme</a>
+	<p>Check out the <a href="https://github.com/gbdev/awesome-gbdev">Awesome Game Boy Development</a> list.</p>
+	<p><a href="{{ "/" | relative_url }}">Light theme</a> – <a href="{{ "/dark" | relative_url }}">Dark theme</a> – <a href="{{ "/classic" | relative_url }}">Classic theme</a></p>
 </footer>
