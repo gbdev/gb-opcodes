@@ -21,6 +21,14 @@
 	<meta name="google-site-verification" content="EoI79Ar6lCYY8kCtwd17i7PwcSF6lE6hHQ4AaKXHuQc" />
 </head>
 <body class="{% if page.theme %}theme-{{ page.theme }}{% endif %}{% if page.theme == "dark" %} bg-dark text-white{% endif %}">
-	{{ content }}
+	<section id="content" class="container{% if page.containerFluid %}-fluid{% endif %}">
+		{{ content }}
+	</section>
+
+	{% if page.footer %}
+		{% include {{ page.footer }} %}
+	{% else %}
+		{% include footer.html %}
+	{% endif %}
 </body>
 </html>

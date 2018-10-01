@@ -102,8 +102,14 @@ kbd {
 }
 
 @mixin opcode-table($variant:default) {
-	> tbody > tr > td:first-child {
-		vertical-align: middle;
+	> thead > tr > th,
+	> tbody > tr > td {
+		// min-width: 4rem;
+
+		&:first-child {
+			vertical-align: middle;
+			// min-width: 2rem;
+		}
 	}
 
 	> thead > tr > th,

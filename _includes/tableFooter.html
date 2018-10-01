@@ -1,0 +1,16 @@
+{% capture footerContent %}
+	<div class="themes">
+		<p>
+			<a href="{{ "/" | relative_url }}{% if page.octalTables %}octal{% endif %}">Light theme</a> –
+			<a href="{{ "/dark" | relative_url }}{% if page.octalTables %}octal{% endif %}">Dark theme</a> –
+			<a href="{{ "/classic" | relative_url }}{% if page.octalTables %}octal{% endif %}">Classic theme</a>
+		</p>
+
+		{% if page.octalTables %}
+			<p><a href="{{ page.url | split: "." | first | replace: "octal", "" | relative_url }}">Standard representation</a></p>
+		{% else %}
+			<p><a href="{{ page.url | split: "." | first | append: "octal" | relative_url }}">Octal representation</a></p>
+		{% endif %}
+	</div>
+{% endcapture %}
+{% include footer.html footerContent=footerContent %}
