@@ -27,13 +27,15 @@
 		</div>
 
 		<div class="col-md-12 col-lg-6 mb-3">
-			<table id="demo-table">
+			<table id="demo-table" class="mb-3">
 				<tbody>
 					<tr><td></td> <td></td> <td><span>INS reg</span><br></td> <td>←</td> <td>Instruction mnemonic</td></tr>
-					<tr><td>Length in bytes</td> <td>→</td> <td><span>2&nbsp;&nbsp;8</span><br></td> <td>←</td> <td>Duration in cycles</td></tr>
+					<tr><td>Length in bytes</td> <td>→</td> <td><span>2&nbsp;&nbsp;8</span><br></td> <td>←</td> <td>Duration in T-states<sup>*</sup></td></tr>
 					<tr><td></td> <td></td><td><span>Z N H C</span></td> <td>←</td> <td>Flags affected</td></tr>
 				</tbody>
 			</table>
+
+			<p><sup>*)</sup> Often instruction durations are given in “M-cycles” (machine cycles) instead of “T-states” (system clock ticks) because each instruction takes a multiple of four T-states to complete, thus a <kbd>NOP</kbd> takes one M-cycle or four T-states to complete.</p>
 		</div>
 	</div>
 
@@ -45,7 +47,9 @@
 					<kbd>N</kbd> - Subtract Flag<br>
 					<kbd>H</kbd> - Half Carry Flag<br>
 					<kbd>C</kbd> - Carry Flag<br>
-					<kbd>0</kbd> - Not used, always zero<br>
+					<kbd>0</kbd> - The flag is reset<br>
+					<kbd>1</kbd> - The flag is set<br>
+					<kbd>-</kbd> - The flag is left untouched<br>
 				</div>
 			</div>
 		</div>
@@ -53,7 +57,7 @@
 		<div class="col-md-12 col-lg-6">
 			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
-					The duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) means duration of instruction when action is taken, the lower number (on the right side of “/”) means duration of instruction when action is not taken.
+					The duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) is the duration of the instruction when action is taken, the lower number (on the right side of “/”) is the duration of the instruction when action is not taken.
 				</div>
 			</div>
 		</div>
@@ -63,21 +67,16 @@
 		<div class="col">
 			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
-					Flags affected are always shown in <kbd>Z H N C</kbd> order.
-					If a flag is marked by <kbd>0</kbd> it means it is reset after the instruction. If it is marked by <kbd>1</kbd> it is set.
-					If it is marked by <kbd>-</kbd> it is not changed.
-					If it is marked by <kbd>Z</kbd>, <kbd>N</kbd>, <kbd>H</kbd> or <kbd>C</kbd> the corresponding flag is affected as expected by its function.
-				</div>
-			</div>
-
-			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
-				<div class="card-body">
 					<p><kbd>d8</kbd> means immediate 8-bit data</p>
 					<p><kbd>d16</kbd> means immediate 16-bit data</p>
 					<p><kbd>a8</kbd> means 8-bit unsigned data, which is added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
 					<p><kbd>a16</kbd> means 16-bit address</p>
 					<p><kbd>r8</kbd> means 8-bit signed data, which is added to the program counter</p>
-					<br>
+				</div>
+			</div>
+
+			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+				<div class="card-body">
 					<p><kbd>LD A, (C)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+C)</kbd></p>
 					<p><kbd>LD C, (A)</kbd> has the alternative mnemonic <kbd>LD ($FF00+C), A</kbd></p>
 					<p><kbd>LDH A, (a8)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+a8)</kbd></p>
