@@ -1,5 +1,5 @@
 <div class="table-responsive">
-	<table class="table opcode-table table-bordered table-sm{% if page.theme == "dark" %} table-dark{% endif %}">
+	<table{% if include.id != "" %} id="{{ include.id }}"{% endif %} class="table opcode-table table-bordered table-sm{% if page.theme == "dark" %} table-dark{% endif %}">
 		<thead>
 			<tr>
 				{% for i in (-1..15) %}
@@ -16,7 +16,7 @@
 						{% assign index = i | times: 16 | plus: j %}
 						{% capture key %}{% include hex.html value=index addPrefix=true %}{% endcapture %}
 						{% assign key = key | strip %}
-						{% assign op = include.set[key] %}
+						{% assign op = site.data.Opcodes[include.set][key] %}
 						{% assign mnemonic = op.mnemonic %}
 
 						{% assign illegal = mnemonic | slice: 0, 7 %}
@@ -55,7 +55,7 @@
 							{% assign is16bit = false %}
 						{% endif %}
 
-						<td class="opcode-info op-{{ mnemonic | downcase }} {% if is16bit %}is16bit{% else %}is8bit{% endif %}">
+						<td id="op-{% if include.set == "cbprefixed" %}cb{% endif %}{{ key | downcase | slice: -2, 2 }}" class="opcode-info op-{{ mnemonic | downcase }} {% if is16bit %}is16bit{% else %}is8bit{% endif %}">
 							{% if illegal %}
 								—
 							{% else %}

@@ -1,22 +1,22 @@
 <section id="content" class="container">
-	<h1>Game Boy CPU (LR35902) instruction set (<a href="{{ "/Opcodes.json" | relative_url }}">JSON</a>)</h1>
+	<h1><small><a href="#standard">🔗</a></small> Game Boy CPU (LR35902) instruction set (<a href="{{ "/Opcodes.json" | relative_url }}">JSON</a>)</h1>
 
 	<div class="row">
 		<div class="col">
-			{% include op-table.html set=site.data.Opcodes.unprefixed %}
+			{% include op-table.html set="unprefixed" id="standard" %}
 		</div>
 	</div>
 
-	<h2>Prefixed ($CB $xx)</h2>
+	<h2><small><a href="#prefixed">🔗</a></small> Prefixed ($CB $xx)</h2>
 
 	<div class="row">
 		<div class="col">
-			{% include op-table.html set=site.data.Opcodes.cbprefixed %}
+			{% include op-table.html set="cbprefixed" id="prefixed" %}
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-12 col-lg-6 mb-3">
+		<div id="legend" class="col-md-12 col-lg-6 mb-3">
 			<span class="legend"><span class="legend-color legend-control"></span> Misc / control instructions</span>
 			<span class="legend"><span class="legend-color legend-jump"></span> Jumps / calls</span>
 			<span class="legend"><span class="legend-color legend-load"></span> 8-bit load instructions</span>
@@ -26,7 +26,7 @@
 			<span class="legend"><span class="legend-color legend-bit"></span> 8-bit shift, rotate and bit instructions</span>
 		</div>
 
-		<div class="col-md-12 col-lg-6 mb-3">
+		<div id="how-to-read" class="col-md-12 col-lg-6 mb-3">
 			<table id="demo-table" class="mb-3">
 				<tbody>
 					<tr><td></td> <td></td> <td><span>INS reg</span><br></td> <td>←</td> <td>Instruction mnemonic</td></tr>
@@ -41,21 +41,25 @@
 
 	<div class="row">
 		<div class="col-md-12 col-lg-6">
-			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+			<div id="flags" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
-					<kbd>Z</kbd> - Zero Flag<br>
-					<kbd>N</kbd> - Subtract Flag<br>
-					<kbd>H</kbd> - Half Carry Flag<br>
-					<kbd>C</kbd> - Carry Flag<br>
-					<kbd>0</kbd> - The flag is reset<br>
-					<kbd>1</kbd> - The flag is set<br>
-					<kbd>-</kbd> - The flag is left untouched<br>
+					<p>
+						<kbd>Z</kbd> - Zero Flag<br>
+						<kbd>N</kbd> - Subtract Flag<br>
+						<kbd>H</kbd> - Half Carry Flag<br>
+						<kbd>C</kbd> - Carry Flag<br>
+						<kbd>0</kbd> - The flag is reset<br>
+						<kbd>1</kbd> - The flag is set<br>
+						<kbd>-</kbd> - The flag is left untouched
+					</p>
+
+					<p>If an operation has the flags defined as <kbd>Z</kbd>, <kbd>N</kbd>, <kbd>H</kbd>, or <kbd>C</kbd>, the corresponding flags are set as the operation performed dictates.</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-12 col-lg-6">
-			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+			<div id="conditional-durations" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
 					The duration of conditional calls and returns is different when action is taken or not. This is indicated by two numbers separated by “/”. The higher number (on the left side of “/”) is the duration of the instruction when action is taken, the lower number (on the right side of “/”) is the duration of the instruction when action is not taken.
 				</div>
@@ -65,7 +69,7 @@
 
 	<div class="row">
 		<div class="col">
-			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+			<div id="datatypes" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
 					<p><kbd>d8</kbd> means immediate 8-bit data</p>
 					<p><kbd>d16</kbd> means immediate 16-bit data</p>
@@ -75,7 +79,7 @@
 				</div>
 			</div>
 
-			<div class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
+			<div id="alternatives" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 				<div class="card-body">
 					<p><kbd>LD A, (C)</kbd> has the alternative mnemonic <kbd>LD A, ($FF00+C)</kbd></p>
 					<p><kbd>LD C, (A)</kbd> has the alternative mnemonic <kbd>LD ($FF00+C), A</kbd></p>

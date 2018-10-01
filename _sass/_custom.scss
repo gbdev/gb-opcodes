@@ -68,6 +68,11 @@ kbd {
 .legend-arithmetic16 { background-color: map-get($op-arithmetic16, default); }
 .legend-bit { background-color: map-get($op-bit, default); }
 
+:target.card {
+	border-left-color: #f0ad4e;
+	border-left-width: 4px;
+}
+
 .theme-dark {
 	.legend-control { background-color: map-get($op-control, dark); }
 	.legend-jump { background-color: map-get($op-jump, dark); }
@@ -88,6 +93,14 @@ kbd {
 	.legend-bit { background-color: map-get($op-bit, classic); }
 }
 
+@mixin opcode($op, $variant) {
+	background-color: map-get($op, $variant);
+
+	&:target {
+		background-color: if(lightness(map-get($op, $variant)) >= 50%, darken(map-get($op, $variant), 20%), lighten(map-get($op, $variant), 20%));
+	}
+}
+
 @mixin opcode-table($variant:default) {
 	> tbody > tr > td:first-child {
 		vertical-align: middle;
@@ -103,7 +116,7 @@ kbd {
 	}
 
 	.op-illegal {
-		background-color: map-get($op-illegal, $variant);
+		@include opcode($op-illegal, $variant);
 	}
 
 	/* Control / misc */
@@ -113,7 +126,7 @@ kbd {
 	.op-prefix,
 	.op-di,
 	.op-ei {
-		background-color: map-get($op-control, $variant);
+		@include opcode($op-control, $variant);
 	}
 
 	/* Jumps / calls */
@@ -123,13 +136,13 @@ kbd {
 	.op-jp,
 	.op-jr,
 	.op-rst {
-		background-color: map-get($op-jump, $variant);
+		@include opcode($op-jump, $variant);
 	}
 
 	/* 8bit ops */
 	.op-ld,
 	.op-ldh {
-		background-color: map-get($op-load, $variant);
+		@include opcode($op-load, $variant);
 	}
 
 	.op-inc,
@@ -148,7 +161,7 @@ kbd {
 	.op-xor,
 	.op-or,
 	.op-cp {
-		background-color: map-get($op-arithmetic, $variant);
+		@include opcode($op-arithmetic, $variant);
 	}
 
 	.op-rlca,
@@ -167,20 +180,20 @@ kbd {
 	.op-bit,
 	.op-res,
 	.op-set {
-		background-color: map-get($op-bit, $variant);
+		@include opcode($op-bit, $variant);
 	}
 
 	/* 16bit ops */
 	.op-ld.is16bit,
 	.op-push,
 	.op-pop {
-		background-color: map-get($op-load16, $variant);
+		@include opcode($op-load16, $variant);
 	}
 
 	.op-add.is16bit,
 	.op-inc.is16bit,
 	.op-dec.is16bit {
-		background-color: map-get($op-arithmetic16, $variant);
+		@include opcode($op-arithmetic16, $variant);
 	}
 }
 
