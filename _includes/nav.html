@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	 <a class="navbar-brand" href="{{ "/" | relative_url }}">
+		<img src="{{ "/favicon-x128.png" | relative_url }}" width="30" height="30" class="d-inline-block align-top" alt="">
+		GBDocs
+	</a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Theme
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{ "/" | relative_url }}{% if page.octalTables %}octal{% endif %}">Light</a>
+					<a class="dropdown-item" href="{{ "/dark" | relative_url }}{% if page.octalTables %}octal{% endif %}">Dark</a>
+					<a class="dropdown-item" href="{{ "/classic" | relative_url }}{% if page.octalTables %}octal{% endif %}">Classic</a>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				{% if page.octalTables %}
+					<a class="nav-link" href="{{ "/" | append: page.theme | replace: "default", "" | relative_url }}">Standard Display</a>
+				{% else %}
+					<a class="nav-link" href="{{ "/" | append: page.theme | replace: "default", "" | append: "octal" | relative_url }}">Octal Display</a>
+				{% endif %}
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="https://github.com/gbdev/awesome-gbdev">Awesome GBDev List</a>
+			</li>
+		</ul>
+	</div>
+</nav>

@@ -1,3 +1,27 @@
 .container-fluid {
 	max-width: map-get($container-max-widths, xl);
 }
+
+.dropdown {
+	&:hover {
+		> .dropdown-menu {
+			display: block;
+		}
+	}
+
+	> .dropdown-toggle {
+		&:hover {
+			+ .dropdown-menu {
+				display: block;
+			}
+		}
+	}
+
+	.dropdown-menu {
+		margin: 0;
+
+		&:hover {
+			display: block;
+		}
+	}
+}
