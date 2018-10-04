@@ -1,0 +1,14 @@
+{
+	"unprefixed": {
+		"nop": {
+			"ops": [ 0 ],
+			"desc": "No operation.",
+			"flags": false
+		},
+		"ld_r16_d16": {
+			"ops": [ 1, 17, 33, 49 ],
+			"desc": "Load value <kbd>%op2%</kbd> into register <kbd>%op1%</kbd>.",
+			"flags": false
+		}
+	}
+}

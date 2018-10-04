@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% assign collection_url = page.url | split: "/" | pop | join: "/" | strip | prepend: "/" | append: "/" | relative_url %}
+<header>
+	{% capture nav %}
+		{% include awesome.html %}
+	{% endcapture %}
+	{% include nav.html content=nav %}
+</header>
+
+{% include content.html content=content %}

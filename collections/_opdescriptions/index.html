@@ -1,0 +1,90 @@
+---
+layout: opdescriptions
+---
+{% comment %}
+	Convert the OpcodeDescriptions.json data into an easier to use format
+{% endcomment %}
+{% assign unprefixed = site.emptyArray %}
+{% assign cbprefixed = site.emptyArray %}
+{% for i in (0..15) %}
+	{% for j in (0..15) %}
+		{% assign index = i | times: 16 | plus: j %}
+		{% capture key %}{% include hex.html value=index addPrefix=true %}{% endcapture %}
+		{% assign key = key | strip %}
+
+		{% assign found = false %}
+		{% for group in site.data.OpcodeDescriptions.unprefixed %}
+			{% if group[1].ops contains index %}
+				{% assign found = true %}
+				{% assign op = site.data.Opcodes.unprefixed[key] %}
+
+				{% assign desc = group[1].desc | replace: "%op1%", op.operands[0].name | replace: "%op2%", op.operands[1].name %}
+				{% assign tmp = site.emptyArray | push: desc | push: group[1].flags %}
+				{% assign unprefixed = unprefixed | push: tmp %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+		{% if found == false %}
+			{% assign unprefixed = unprefixed | push: site.emptyArray %}
+		{% endif %}
+
+		{% assign found = false %}
+		{% for group in site.data.OpcodeDescriptions.cbprefixed %}
+			{% if group[1].ops contains index %}
+				{% assign found = true %}
+				{% assign tmp = site.emptyArray | push: group[1].desc | push: group[1].flags %}
+				{% assign cbprefixed = cbprefixed | push: tmp %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+		{% if found == false %}
+			{% assign cbprefixed = cbprefixed | push: site.emptyArray %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+
+{% comment %}
+	Generate output
+{% endcomment %}
+
+<h1>Standard</h1>
+<dl>
+{% for i in (0..15) %}
+	{% for j in (0..15) %}
+		{% assign index = i | times: 16 | plus: j %}
+		{% capture key %}{% include hex.html value=index addPrefix=true %}{% endcapture %}
+		{% assign key = key | strip %}
+		{% assign op = site.data.Opcodes.unprefixed[key] %}
+		{% assign mnemonic = op.mnemonic %}
+
+		{% assign illegal = mnemonic | slice: 0, 7 %}
+		{% if illegal == "ILLEGAL" %}{% assign illegal = true %}{% else %}{% assign illegal = false %}{% endif %}
+		{% if illegal %}{% assign mnemonic = "ILLEGAL" %}{% endif %}
+
+		{% if unprefixed[index][0] %}
+			<dt id="op-{{ key | downcase | slice: -2, 2 }}">{% include optables/mnemonic.html id=key op=op %}</dt><dd>{{ unprefixed[index][0] }}</dd>
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+</dl>
+
+<h2>Prefixed</h2>
+<dl>
+{% for i in (0..15) %}
+	{% for j in (0..15) %}
+		{% assign index = i | times: 16 | plus: j %}
+		{% capture key %}{% include hex.html value=index addPrefix=true %}{% endcapture %}
+		{% assign key = key | strip %}
+		{% assign op = site.data.Opcodes.cbprefixed[key] %}
+		{% assign mnemonic = op.mnemonic %}
+
+		{% assign illegal = mnemonic | slice: 0, 7 %}
+		{% if illegal == "ILLEGAL" %}{% assign illegal = true %}{% else %}{% assign illegal = false %}{% endif %}
+		{% if illegal %}{% assign mnemonic = "ILLEGAL" %}{% endif %}
+
+		{% if cbprefixed[index][0] %}
+			<dt id="op-cb{{ key | downcase | slice: -2, 2 }}">{% include optables/mnemonic.html id=key op=op %}</dt><dd>{{ cbprefixed[index][0] }}</dd>
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+</dl>
