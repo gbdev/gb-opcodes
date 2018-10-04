@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head class="nojs">
-	{% assign collection_url = page.url | split: "/" | pop | join "/" | strip | prepend: "/" | append: "/" | relative_url %}
+	{% assign collection_url = page.url | split: "/" | pop | join: "/" | strip | prepend: "/" | append: "/" | relative_url %}
 	<title>{{ site.title }}</title>
 	<meta charset='utf-8'/>
 

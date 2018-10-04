@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign collection_url = page.url | split: "/" | pop | join "/" | strip | prepend: "/" | append: "/" | relative_url %}
+{% assign collection_url = page.url | split: "/" | pop | join: "/" | strip | prepend: "/" | append: "/" | relative_url %}
 <header>
 	{% capture nav %}
 		<li class="nav-item dropdown">
