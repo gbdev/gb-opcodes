@@ -3,7 +3,7 @@ layout: optable
 theme: default
 containerFluid: true
 octalTables: true
-canonical: https://max-m.github.io/gb-docs/optables/
+canonical: https://gbdev.github.io/gb-opcodes/optables/
 ogimage: assets/opengraph-image-octal.png
 ---
 
