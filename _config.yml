@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Game Boy CPU (LR35902) instruction set
+title: Game Boy CPU (SM83) instruction set
 description: >-
   Instruction set of the Nintendo Game Boy, Game Boy Pocket, Game Boy Color and Super Game Boy systems.
 baseurl: "/gb-opcodes" # the subpath of your site, e.g. /blog
