@@ -158,7 +158,7 @@
 			"operands": [],
 			"immediate": true,
 			"flags": {
-				"Z": "0",
+				"Z": "Z",
 				"N": "0",
 				"H": "0",
 				"C": "C"
@@ -331,7 +331,7 @@
 			"operands": [],
 			"immediate": true,
 			"flags": {
-				"Z": "0",
+				"Z": "Z",
 				"N": "0",
 				"H": "0",
 				"C": "C"
@@ -495,7 +495,7 @@
 			"operands": [],
 			"immediate": true,
 			"flags": {
-				"Z": "0",
+				"Z": "Z",
 				"N": "0",
 				"H": "0",
 				"C": "C"
@@ -664,7 +664,7 @@
 			"operands": [],
 			"immediate": true,
 			"flags": {
-				"Z": "0",
+				"Z": "Z",
 				"N": "0",
 				"H": "0",
 				"C": "C"
