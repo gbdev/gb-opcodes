@@ -339,11 +339,17 @@
 		},
 		"0x10": {
 			"mnemonic": "STOP",
-			"bytes": 1,
+			"bytes": 2,
 			"cycles": [
 				4
 			],
-			"operands": [],
+			"operands": [
+				{
+					"name": "Ignored",
+					"bytes": 1,
+					"immediate": true
+				}
+			],
 			"immediate": true,
 			"flags": {
 				"Z": "-",
