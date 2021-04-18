@@ -5434,6 +5434,11 @@
 					"name": "SP",
 					"increment": true,
 					"immediate": true
+				},
+				{
+					"name": "r8",
+					"bytes": 1,
+					"immediate": true
 				}
 			],
 			"immediate": true,
