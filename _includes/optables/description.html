@@ -63,9 +63,9 @@
 		<div id="datatypes" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 			<div class="card-body">
 				<p><kbd>d8</kbd> means immediate 8-bit data</p>
-				<p><kbd>d16</kbd> means immediate 16-bit data</p>
+				<p><kbd>d16</kbd> means immediate 16-bit data, in little endian</p>
 				<p><kbd>a8</kbd> means 8-bit unsigned data, which is added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
-				<p><kbd>a16</kbd> means 16-bit address</p>
+				<p><kbd>a16</kbd> means 16-bit address, in little endian</p>
 				<p><kbd>r8</kbd> means 8-bit signed data</p>
 			</div>
 		</div>
