@@ -80,7 +80,11 @@
 				<p><kbd>LD (HL+), A</kbd> has the alternative mnemonic <kbd>LD (HLI), A</kbd> or <kbd>LDI (HL), A</kbd></p>
 				<p><kbd>LD A, (HL-)</kbd> has the alternative mnemonic <kbd>LD A, (HLD)</kbd> or <kbd>LDD A, (HL)</kbd></p>
 				<p><kbd>LD (HL-), A</kbd> has the alternative mnemonic <kbd>LD (HLD), A</kbd> or <kbd>LDD (HL), A</kbd></p>
-				<kbd>LD HL, SP+r8</kbd> has the alternative mnemonic <kbd>LDHL SP, r8</kbd>
+				<p><kbd>LD HL, SP+r8</kbd> has the alternative mnemonic <kbd>LDHL SP, r8</kbd></p>
+				<p>
+					ALU instructions (<kbd>ADD</kbd>, <kbd>ADC</kbd>, <kbd>SUB</kbd>, <kbd>SBC</kbd>, <kbd>AND</kbd>, <kbd>XOR</kbd>, <kbd>OR</kbd>, and <kbd>CP</kbd>) can be written with the left-hand side <kbd>A</kbd> omitted.
+					Thus for example <kbd>ADD A, B</kbd> has the alternative mnemonic <kbd>ADD B</kbd>, and <kbd>CP A, $F</kbd> has the alternative mnemonic <kbd>CP $F</kbd>.
+				</p>
 			</div>
 		</div>
 	</div>
