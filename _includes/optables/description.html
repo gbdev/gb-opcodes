@@ -62,11 +62,11 @@
 	<div class="col">
 		<div id="datatypes" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 			<div class="card-body">
-				<p><kbd>d8</kbd> means immediate 8-bit data</p>
-				<p><kbd>d16</kbd> means immediate little-endian 16-bit data</p>
-				<p><kbd>a8</kbd> means 8-bit unsigned data, which is added to $FF00 in certain instructions (replacement for missing IN and OUT instructions)</p>
+				<p><kbd>n8</kbd> means immediate 8-bit data</p>
+				<p><kbd>n16</kbd> means immediate little-endian 16-bit data</p>
+				<p><kbd>a8</kbd> means 8-bit unsigned data, which is added to $FF00 in certain instructions to create a 16-bit address in HRAM (High RAM)</p>
 				<p><kbd>a16</kbd> means little-endian 16-bit address</p>
-				<p><kbd>r8</kbd> means 8-bit signed data</p>
+				<p><kbd>e8</kbd> means 8-bit signed data</p>
 			</div>
 		</div>
 
@@ -80,7 +80,7 @@
 				<p><kbd>LD (HL+), A</kbd> has the alternative mnemonic <kbd>LD (HLI), A</kbd> or <kbd>LDI (HL), A</kbd></p>
 				<p><kbd>LD A, (HL-)</kbd> has the alternative mnemonic <kbd>LD A, (HLD)</kbd> or <kbd>LDD A, (HL)</kbd></p>
 				<p><kbd>LD (HL-), A</kbd> has the alternative mnemonic <kbd>LD (HLD), A</kbd> or <kbd>LDD (HL), A</kbd></p>
-				<kbd>LD HL, SP+r8</kbd> has the alternative mnemonic <kbd>LDHL SP, r8</kbd>
+				<kbd>LD HL, SP+e8</kbd> has the alternative mnemonic <kbd>LDHL SP, e8</kbd>
 			</div>
 		</div>
 	</div>
