@@ -1,5 +1,5 @@
 {% if include.id == "0xF8" and include.op.mnemonic == "LD" %}
-	LD HL, SP + r8
+	LD HL, SP + e8
 {% elsif include.op.operands.size == 0 %}
 	{{ include.op.mnemonic }}
 {% elsif include.op.operands.size == 1 %}

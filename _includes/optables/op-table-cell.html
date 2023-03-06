@@ -20,7 +20,7 @@
 	{% assign is16bit = true %}
 {% elsif op.operands.size > 0 and op.operands[0].name == "a16" and op.operands[0].immediate %}
 	{% assign is16bit = true %}
-{% elsif op.operands.size > 0 and op.operands[0].name == "d16" %}
+{% elsif op.operands.size > 0 and op.operands[0].name == "n16" %}
 	{% assign is16bit = true %}
 {% elsif op.operands.size > 1 and op.operands[1].name == "SP" and op.operands[1].immediate %}
 	{% assign is16bit = true %}
@@ -34,7 +34,7 @@
 	{% assign is16bit = true %}
 {% elsif op.operands.size > 1 and op.operands[1].name == "a16" and op.operands[1].immediate %}
 	{% assign is16bit = true %}
-{% elsif op.operands.size > 1 and op.operands[1].name == "d16" %}
+{% elsif op.operands.size > 1 and op.operands[1].name == "n16" %}
 	{% assign is16bit = true %}
 {% else %}
 	{% assign is16bit = false %}
