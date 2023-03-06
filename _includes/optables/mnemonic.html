@@ -3,7 +3,7 @@
 {% elsif include.op.operands.size == 0 %}
 	{{ include.op.mnemonic }}
 {% elsif include.op.operands.size == 1 %}
-	{{ include.op.mnemonic }} {% if include.op.operands[0].immediate == false %}({% endif %}{{ include.op.operands[0].name }}{% if include.op.operands[0].increment == true %}+{% elsif include.op.operands[0].decrement == true%}-{% endif %}{% if include.op.operands[0].immediate == false %}){% endif %}
+	{{ include.op.mnemonic }} {% if include.op.operands[0].immediate == false %}[{% endif %}{{ include.op.operands[0].name }}{% if include.op.operands[0].increment == true %}+{% elsif include.op.operands[0].decrement == true%}-{% endif %}{% if include.op.operands[0].immediate == false %}]{% endif %}
 {% elsif include.op.operands.size == 2 %}
-	{{ include.op.mnemonic }} {% if include.op.operands[0].immediate == false %}({% endif %}{{ include.op.operands[0].name }}{% if include.op.operands[0].increment == true %}+{% elsif include.op.operands[0].decrement == true%}-{% endif %}{% if include.op.operands[0].immediate == false %}){% endif %}, {% if include.op.operands[1].immediate == false %}({% endif %}{{ include.op.operands[1].name }}{% if include.op.operands[1].increment == true %}+{% elsif include.op.operands[1].decrement == true%}-{% endif %}{% if include.op.operands[1].immediate == false %}){% endif %}
+	{{ include.op.mnemonic }} {% if include.op.operands[0].immediate == false %}[{% endif %}{{ include.op.operands[0].name }}{% if include.op.operands[0].increment == true %}+{% elsif include.op.operands[0].decrement == true%}-{% endif %}{% if include.op.operands[0].immediate == false %}]{% endif %}, {% if include.op.operands[1].immediate == false %}[{% endif %}{{ include.op.operands[1].name }}{% if include.op.operands[1].increment == true %}+{% elsif include.op.operands[1].decrement == true%}-{% endif %}{% if include.op.operands[1].immediate == false %}]{% endif %}
 {% endif %}
