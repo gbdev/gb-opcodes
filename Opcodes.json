@@ -27,7 +27,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d16",
+					"name": "n16",
 					"bytes": 2,
 					"immediate": true
 				}
@@ -136,7 +136,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -309,7 +309,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -345,7 +345,7 @@
 			],
 			"operands": [
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -370,7 +370,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d16",
+					"name": "n16",
 					"bytes": 2,
 					"immediate": true
 				}
@@ -479,7 +479,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -515,7 +515,7 @@
 			],
 			"operands": [
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -648,7 +648,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -689,7 +689,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -714,7 +714,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d16",
+					"name": "n16",
 					"bytes": 2,
 					"immediate": true
 				}
@@ -824,7 +824,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -865,7 +865,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -999,7 +999,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -1040,7 +1040,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -1065,7 +1065,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d16",
+					"name": "n16",
 					"bytes": 2,
 					"immediate": true
 				}
@@ -1175,7 +1175,7 @@
 					"immediate": false
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -1216,7 +1216,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -1350,7 +1350,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -3670,7 +3670,7 @@
 				"Z": "Z",
 				"N": "1",
 				"H": "H",
-				"C": "C"
+				"C": "-"
 			}
 		},
 		"0xA0": {
@@ -5291,7 +5291,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5612,7 +5612,7 @@
 					"immediate": true
 				},
 				{
-					"name": "r8",
+					"name": "e8",
 					"bytes": 1,
 					"immediate": true
 				}
