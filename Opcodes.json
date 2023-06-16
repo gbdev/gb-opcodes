@@ -4587,7 +4587,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -4756,7 +4756,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -4927,7 +4927,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5086,7 +5086,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5246,7 +5246,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5400,7 +5400,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5562,7 +5562,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
@@ -5727,7 +5727,7 @@
 					"immediate": true
 				},
 				{
-					"name": "d8",
+					"name": "n8",
 					"bytes": 1,
 					"immediate": true
 				}
