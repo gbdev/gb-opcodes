@@ -4608,7 +4608,7 @@
 			],
 			"operands": [
 				{
-					"name": "00H",
+					"name": "$00",
 					"immediate": true
 				}
 			],
@@ -4777,7 +4777,7 @@
 			],
 			"operands": [
 				{
-					"name": "08H",
+					"name": "$08",
 					"immediate": true
 				}
 			],
@@ -4948,7 +4948,7 @@
 			],
 			"operands": [
 				{
-					"name": "10H",
+					"name": "$10",
 					"immediate": true
 				}
 			],
@@ -5107,7 +5107,7 @@
 			],
 			"operands": [
 				{
-					"name": "18H",
+					"name": "$18",
 					"immediate": true
 				}
 			],
@@ -5267,7 +5267,7 @@
 			],
 			"operands": [
 				{
-					"name": "20H",
+					"name": "$20",
 					"immediate": true
 				}
 			],
@@ -5421,7 +5421,7 @@
 			],
 			"operands": [
 				{
-					"name": "28H",
+					"name": "$28",
 					"immediate": true
 				}
 			],
@@ -5583,7 +5583,7 @@
 			],
 			"operands": [
 				{
-					"name": "30H",
+					"name": "$30",
 					"immediate": true
 				}
 			],
@@ -5748,7 +5748,7 @@
 			],
 			"operands": [
 				{
-					"name": "38H",
+					"name": "$38",
 					"immediate": true
 				}
 			],
