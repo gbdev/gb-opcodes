@@ -72,15 +72,12 @@
 
 		<div id="alternatives" class="card mb-3{% if page.theme == "dark" %} bg-secondary{% endif %}">
 			<div class="card-body">
-				<p><kbd>LD A, [C]</kbd> has the alternative mnemonic <kbd>LD A, [$FF00+C]</kbd></p>
-				<p><kbd>LD [C], A</kbd> has the alternative mnemonic <kbd>LD [$FF00+C], A</kbd></p>
-				<p><kbd>LDH A, [a8]</kbd> has the alternative mnemonic <kbd>LD A, [$FF00+a8]</kbd></p>
-				<p><kbd>LDH [a8], A</kbd> has the alternative mnemonic <kbd>LD [$FF00+a8], A</kbd></p>
-				<p><kbd>LD A, [HL+]</kbd> has the alternative mnemonic <kbd>LD A, [HLI]</kbd> or <kbd>LDI A, [HL]</kbd></p>
-				<p><kbd>LD [HL+], A</kbd> has the alternative mnemonic <kbd>LD [HLI], A</kbd> or <kbd>LDI [HL], A</kbd></p>
-				<p><kbd>LD A, [HL-]</kbd> has the alternative mnemonic <kbd>LD A, [HLD]</kbd> or <kbd>LDD A, [HL]</kbd></p>
-				<p><kbd>LD [HL-], A</kbd> has the alternative mnemonic <kbd>LD [HLD], A</kbd> or <kbd>LDD [HL], A</kbd></p>
-				<p><kbd>LD HL, SP+e8</kbd> has the alternative mnemonic <kbd>LDHL SP, e8</kbd></p>
+				<p><kbd>LDH A, [C]</kbd> has the alternative mnemonic <kbd>LD A, [$FF00+C]</kbd></p>
+				<p><kbd>LDH [C], A</kbd> has the alternative mnemonic <kbd>LD [$FF00+C], A</kbd></p>
+				<p><kbd>LD A, [HL+]</kbd> has the alternative mnemonics <kbd>LD A, [HLI]</kbd> and <kbd>LDI A, [HL]</kbd></p>
+				<p><kbd>LD [HL+], A</kbd> has the alternative mnemonics <kbd>LD [HLI], A</kbd> and <kbd>LDI [HL], A</kbd></p>
+				<p><kbd>LD A, [HL-]</kbd> has the alternative mnemonics <kbd>LD A, [HLD]</kbd> and <kbd>LDD A, [HL]</kbd></p>
+				<p><kbd>LD [HL-], A</kbd> has the alternative mnemonics <kbd>LD [HLD], A</kbd> and <kbd>LDD [HL], A</kbd></p>
 				<p>
 					ALU instructions (<kbd>ADD</kbd>, <kbd>ADC</kbd>, <kbd>SUB</kbd>, <kbd>SBC</kbd>, <kbd>AND</kbd>, <kbd>XOR</kbd>, <kbd>OR</kbd>, and <kbd>CP</kbd>) can be written with the left-hand side <kbd>A</kbd> omitted.<br/>
 					Thus for example <kbd>ADD A, B</kbd> has the alternative mnemonic <kbd>ADD B</kbd>, and <kbd>CP A, $F</kbd> has the alternative mnemonic <kbd>CP $F</kbd>.
