@@ -5165,7 +5165,7 @@
 			}
 		},
 		"0xE2": {
-			"mnemonic": "LD",
+			"mnemonic": "LDH",
 			"bytes": 1,
 			"cycles": [
 				8
@@ -5479,7 +5479,7 @@
 			}
 		},
 		"0xF2": {
-			"mnemonic": "LD",
+			"mnemonic": "LDH",
 			"bytes": 1,
 			"cycles": [
 				8
